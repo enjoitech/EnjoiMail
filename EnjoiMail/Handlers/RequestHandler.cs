@@ -56,8 +56,9 @@ namespace EnjoiMail.Handlers
 
         CefReturnValue IRequestHandler.OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
         {
-            if (Regex.IsMatch(request.Url, "^https?://[\\w\\.\\-]+.google.[\\w\\.]+/", RegexOptions.IgnoreCase)
-            || Regex.IsMatch(request.Url, "^https?://www.gmail.com", RegexOptions.IgnoreCase)
+            if (Regex.IsMatch(request.Url, "^(blob:)?https?://[\\w\\.\\-]+.google.[\\w\\.]+/", RegexOptions.IgnoreCase)
+                || Regex.IsMatch(request.Url, "^https?://www.gmail.com", RegexOptions.IgnoreCase)
+                || Regex.IsMatch(request.Url, "^https?://\\w+.ggpht.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(request.Url, "^https?://\\w+.youtube.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(request.Url, "^https?://mail.enjoitech.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(request.Url, "^https?://\\w+.gstatic.com", RegexOptions.IgnoreCase)
