@@ -1,33 +1,10 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is a desktop client to view multiple Gmail including G-Suite(and more in future) accounts for Windows. Mac version is on work progress for a stable version.
 
-### Requirement ###
+This does not have/require any registration, oauth authorization, or any limitation. It just loads pure gmail Web UI.
+
+### Requirement to Build ###
 
 * CefSharp ... https://github.com/cefsharp/CefSharp
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Json.NET ... https://www.nuget.org/packages/Newtonsoft.Json/
