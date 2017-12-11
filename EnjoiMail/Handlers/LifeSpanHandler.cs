@@ -11,6 +11,8 @@ namespace EnjoiMail.Handlers
 {
     class LifeSpanHandler : ILifeSpanHandler
     {
+        public string Url { get; set; }
+
         public bool DoClose(IWebBrowser browserControl, IBrowser browser)
         {
             return false;
@@ -32,7 +34,9 @@ namespace EnjoiMail.Handlers
             || Regex.IsMatch(targetUrl, "^https?://www.gmail.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(targetUrl, "^https?://mail.enjoitech.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(targetUrl, "^https?://\\w+.gstatic.com", RegexOptions.IgnoreCase)
-            || Regex.IsMatch(targetUrl, "^https?://lh3.googleusercontent.com", RegexOptions.IgnoreCase))
+            || Regex.IsMatch(targetUrl, "^https?://lh3.googleusercontent.com", RegexOptions.IgnoreCase)
+            || targetUrl == this.Url
+            )
             {
                 // Google link
                 var m = Regex.Match(targetUrl, "^https://www.google.com/url\\?hl=\\w+&q=([^&]+)&", RegexOptions.IgnoreCase);

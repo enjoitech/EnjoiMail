@@ -10,6 +10,7 @@ namespace EnjoiMail.Handlers
 {
     class RequestHandler : IRequestHandler
     {
+        public string Url { get; set; }
         public static readonly string VersionNumberString = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}",
                 Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
 
@@ -62,7 +63,10 @@ namespace EnjoiMail.Handlers
             || Regex.IsMatch(request.Url, "^https?://\\w+.youtube.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(request.Url, "^https?://mail.enjoitech.com", RegexOptions.IgnoreCase)
             || Regex.IsMatch(request.Url, "^https?://\\w+.gstatic.com", RegexOptions.IgnoreCase)
-            || Regex.IsMatch(request.Url, "^https?://[\\w\\-]+.googleusercontent.com", RegexOptions.IgnoreCase))
+            || Regex.IsMatch(request.Url, "^https?://[\\w\\-]+.googleusercontent.com", RegexOptions.IgnoreCase)
+            || Regex.IsMatch(request.Url, this.Url, RegexOptions.IgnoreCase)
+            || request.Url == this.Url
+            )
             {
                 return CefReturnValue.Continue;
             }
